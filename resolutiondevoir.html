@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résolution devoir</title>
+    <style>
+        .openmenu
+        {
+            display: inline-block;
+        }
+
+        .closemenu
+        {
+            display:none;
+        }
+
+        .darkmode
+        {
+            background-color: midnightblue;
+            color: white;
+            
+        }
+
+        .body
+        {
+            margin-right: 250px;
+        }
+</style>
+</head>
+<body id="menu1">
+
+    <h1>Resolution des Exercices</h1>
+
+    <h2>Exercice 2</h2>
+
+    <h4>Convertion des degrés Celsius en Fahrenheit et inversement</h4>
+    
+        <div class="form-group">
+            <span for="temp1">Convertir la valeur </span>
+            <input type="number" value="0.0" name="temp1" id ="temp1" onkeypress="convertir()"/>
+            <span>en </span>
+            <select id='tempunity' onchange="convertir()">
+                <option value='1'>Fahreneit</option>
+                <option value='2'>Celsius</option>
+            </select>
+            <p id='Result'>Résultat : <span></span></p>
+        </div>
+
+    <h2>Exercice 3</h2>
+
+    <h4>Le generateur de citations</h4>
+
+    <p>
+        <input type="radio" id="citation-enable" name="citation">
+        <label>Activer les citations</label>
+        <input type="radio" id="citation-disable" checked name="citation">
+        <label>Désactiver les citations</label>
+
+        <p>Veuillez recharger la page pour passer à l'exercice suivant. Merci</p>
+    </p>
+
+    <h2>Exercice 4</h2>
+
+        <p>Cliquez pour allumer ou eteindre la lumiere</p>
+
+        <button id="toogler1" onClick="tooglemenu1()">Interrupteur</button>
+
+        <h2>Exercice 5</h2>
+
+        <p>Cliquez pour afficher ou faire partir le menu s'il vous plait</p>
+    
+        <div style="width: 100%; height: 50%;">
+    
+            <div style="width: 250px; height:100%; background-color: rgba(128, 255, 0, 0.623);" class="openmenu" id ="menu"> 
+    
+                <p>
+                    Liste des burgers<br/><br/>
+                    
+                    Steak n Shake – McDonald’s<br/><br/>
+                    
+                    Titre Bacon Lover<br/>
+                    Pour les amateurs de bacon croustillant - ici Burger King<br/>
+    
+                    Une création Burger King à base de Bacon et Boeuf<br/><br/>
+    
+                    Titre Bacon Lover Double<br/>
+                    Du bacon, du bacon et encore du bacon - ici Burger King<br/>
+    
+                </p>
+            </div>
+            <br/><button id="toogler" onClick="tooglemenu()">Menu</button>
+            </div>
+        
+    <script>
+    
+    var temp=9;
+
+    function convertir() {
+
+        let temp = document.querySelector('#temp1').value;
+
+        let unity = document.querySelector('#tempunity').value;
+
+        document.querySelector("#Result span").innerText= (unity == 1) ? (temp* (9/8) + 32) : (temp* (8/9) - 32);
+
+    }
+
+    function tooglemenu() {
+
+        document.querySelector('#menu').classList.toggle("openmenu");
+
+        document.querySelector('#menu').classList.toggle("closemenu");
+
+    }
+
+    function tooglemenu1() {
+
+        document.querySelector('#menu1').classList.toggle("darkmode");
+
+    }
+
+    
+
+    let citations = ['DIFFICILE À VOIR. TOUJOURS EN MOUVEMENT EST L’AVENIR.', 
+                     'LE CÔTÉ OBSCUR DE LA FORCE, REDOUTER TU DOIS.', 
+                     'FAIS LE OU NE LE FAIS PAS. IL N’Y A PAS D’ESSAI.', 
+                     'BONNES RELATIONS AVEC LES WOOKIES, J’ENTRETIENS.', 
+                     'UN GRAND GUERRIER ? PERSONNE PAR LA GUERRE NE DEVIENT GRAND.']
+
+        setInterval(() => {
+            if (document.querySelector('#citation-enable').checked) {
+                alert(citations[(Math.floor(Math.random() * (citations.length - 0)) + 0)]);
+            }
+        }, 2000)
+
+</script>
+
+
+    
+</body>
+</html>
